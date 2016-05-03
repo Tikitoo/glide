@@ -9,12 +9,11 @@ import android.widget.LinearLayout;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.RequestBuilder;
 import com.bumptech.glide.RequestManager;
+import com.bumptech.glide.load.DecodeFormat;
 import com.bumptech.glide.load.Key;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
-import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.target.Target;
-import com.bumptech.glide.request.transition.Transition;
 import com.bumptech.glide.signature.ObjectKey;
 
 import java.security.MessageDigest;
@@ -23,22 +22,27 @@ public class MainActivity extends AppCompatActivity {
     public static final String IMG_URL = "http://ww2.sinaimg.cn/large/68622377gw1f1o12qodaoj20760760t7.jpg";
     
     public static final String[] IMG_URLS = new String[] {
-            "http://farm2.staticflickr.com/1468/26085151174_3d26414da5_m.jpg",
-            "http://farm2.staticflickr.com/1514/26086855813_45a1d43860_m.jpg",
-            "http://farm2.staticflickr.com/1537/26085126394_b89bdc67c5_m.jpg",
-            "http://farm2.staticflickr.com/1709/26085176674_c938581d2a_m.jpg",
-            "http://farm2.staticflickr.com/1620/26085161554_137e084a04_m.jpg",
-            "http://farm2.staticflickr.com/1476/26085173654_d3de8be302_m.jpg",
-            "http://farm2.staticflickr.com/1565/26085133614_7c5281b929_m.jpg",
-            "http://farm2.staticflickr.com/1530/26085155304_ff15b7ca11_m.jpg",
-            "http://farm2.staticflickr.com/1461/26085156244_3755395d56_m.jpg",
-            "http://farm2.staticflickr.com/1545/26085123394_a8a2b96961_m.jpg",
-            "http://farm2.staticflickr.com/1631/26085140664_293d08a523_m.jpg",
-            "http://farm2.staticflickr.com/1686/26085155554_72869ac0a1_m.jpg",
-            "http://farm2.staticflickr.com/1544/26085172074_dc4850d6cd_m.jpg",
-            "http://farm2.staticflickr.com/1560/26085151934_9650ebb3b9_m.jpg",
-            "http://farm2.staticflickr.com/1688/26085172204_ba0d688f5b_m.jpg",
-            "http://farm2.staticflickr.com/1564/26085149374_49d888d41e_m.jpg"
+            "https://static.pexels.com/photos/5854/sea-woman-legs-water-medium.jpg",
+            "https://static.pexels.com/photos/6245/kitchen-cooking-interior-decor-medium.jpg",
+            "https://static.pexels.com/photos/6770/light-road-lights-night-medium.jpg",
+            "https://static.pexels.com/photos/6041/nature-grain-moving-cereal-medium.jpg",
+            "https://static.pexels.com/photos/7116/mountains-water-trees-lake-medium.jpg",
+            "https://static.pexels.com/photos/6601/food-plate-yellow-white-medium.jpg",
+            "https://static.pexels.com/photos/6695/summer-sun-yellow-spring-medium.jpg",
+            "https://static.pexels.com/photos/7117/mountains-night-clouds-lake-medium.jpg",
+            "https://static.pexels.com/photos/7262/clouds-ocean-seagull-medium.jpg",
+            "https://static.pexels.com/photos/5968/wood-nature-dark-forest-medium.jpg",
+            "https://static.pexels.com/photos/6101/hands-woman-art-hand-medium.jpg",
+            "https://static.pexels.com/photos/6571/pexels-photo-medium.jpeg",
+            "https://static.pexels.com/photos/6740/food-sugar-lighting-milk-medium.jpg",
+            "https://static.pexels.com/photos/5659/sky-sunset-clouds-field-medium.jpg",
+            "https://static.pexels.com/photos/6945/sunset-summer-golden-hour-paul-filitchkin-medium.jpg",
+            "https://static.pexels.com/photos/6151/animal-cute-fur-white-medium.jpg",
+            "https://static.pexels.com/photos/5696/coffee-cup-water-glass-medium.jpg",
+            "https://static.pexels.com/photos/6789/flowers-petals-gift-flower-medium.jpg",
+            "https://static.pexels.com/photos/7202/summer-trees-sunlight-trail-medium.jpg",
+            "https://static.pexels.com/photos/7147/night-clouds-summer-trees-medium.jpg",
+            "https://static.pexels.com/photos/6342/woman-notebook-working-girl-medium.jpg"
     };
 
     @Override
@@ -69,9 +73,9 @@ public class MainActivity extends AppCompatActivity {
 
     private void showImage(ImageView defImg, Object model) {
         RequestOptions requestOptions = new RequestOptions()
-                .override(300, 100)
+                .override(300, 200)
+                .format(DecodeFormat.PREFER_RGB_565)
                 .signature(new ObjectKey(model))
-
                 .diskCacheStrategy(DiskCacheStrategy.DATA)
                 .centerCrop(this);
 
@@ -81,13 +85,17 @@ public class MainActivity extends AppCompatActivity {
         RequestBuilder builder = manager.load(model)
                 .thumbnail(0.5F)
                 .apply(requestOptions);
+        getTarget(defImg, builder);
+    }
+
+    private void getTarget(ImageView defImg, RequestBuilder builder) {
         Target target = builder.into(defImg);
-        Target target2 = builder.into(new SimpleTarget<byte[]>(250, 250) {
+        /*Target target2 = builder.into(new SimpleTarget<byte[]>(250, 250) {
             @Override
             public void onResourceReady(byte[] resource, Transition<? super byte[]> transition) {
 
             }
-        });
+        });*/
     }
 
     public class StringSignature implements Key {
