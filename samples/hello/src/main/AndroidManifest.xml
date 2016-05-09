@@ -2,8 +2,8 @@
 <manifest package="me.tikitoo.android.hello"
           xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <application
         android:allowBackup="true"
@@ -18,10 +18,14 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <activity android:name=".NormalActivity" />
+        <activity android:name=".LoadDiffImageActivity" />
+
         <meta-data
             android:name="me.tikitoo.android.hello.HelloModule"
-            android:value="GlideModule"
-            />
+            android:value="GlideModule"/>
+
+
     </application>
 
 </manifest>

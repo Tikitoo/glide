@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/image_view"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <Button
+            android:id="@+id/btn_res"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/resource"/>
+
+        <Button
+            android:id="@+id/btn_file"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/file"/>
+
+        <Button
+            android:id="@+id/btn_uri"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/uri"/>
+
+        <Button
+            android:id="@+id/btn_uri_res"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/uri_res"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_error"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/uri_error"/>
+    </LinearLayout>
+</LinearLayout>

@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Hello</string>
+    <string name="resource">Resource</string>
+    <string name="file">File</string>
+    <string name="uri">Uri</string>
+    <string name="uri_res">Uri Res</string>
+    <string name="uri_error">Error</string>
 </resources>

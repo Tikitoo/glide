@@ -5,7 +5,6 @@ import android.support.annotation.Nullable;
 
 import com.bumptech.glide.GlideBuilder;
 import com.bumptech.glide.Registry;
-import com.bumptech.glide.load.DecodeFormat;
 import com.bumptech.glide.load.engine.bitmap_recycle.LruBitmapPool;
 import com.bumptech.glide.load.engine.cache.DiskCache;
 import com.bumptech.glide.load.engine.cache.DiskLruCacheWrapper;
@@ -21,13 +20,13 @@ public class HelloModule implements GlideModule {
     public void applyOptions(Context context, GlideBuilder builder) {
         // /storage/emulated/0/Android/data/me.tikitoo.android.hello/cache/image_manager_disk_cache
         builder.setDiskCache(new ExternalCacheDiskCacheFactory(context));
-        customDiskCache(builder);
+//        customDiskCache(builder);
         MemorySizeCalculator memorySizeCalculator = new MemorySizeCalculator.Builder(context).build();
         int bitPoolSize = memorySizeCalculator.getBitmapPoolSize();
         int memoryCacheSize = memorySizeCalculator.getMemoryCacheSize();
         builder.setMemoryCache(new LruResourceCache(memoryCacheSize));
         builder.setBitmapPool(new LruBitmapPool(bitPoolSize));
-        builder.setDecodeFormat(DecodeFormat.PREFER_RGB_565);
+//        builder.setDecodeFormat(DecodeFormat.PREFER_RGB_565);
     }
 
     private void customDiskCache(GlideBuilder builder) {
